@@ -1,0 +1,21 @@
+{
+    "name": "to-bq",
+    "description": "Uploads a data file to Google Cloud's Bigquery",
+    "version": "1.0.0",
+    "author": "Max Harlow <contact@maxharlow.com> (https://maxharlow.com/)",
+    "license": "Apache-2.0",
+    "type": "module",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/maxharlow/to-bq.git"
+    },
+    "dependencies": {
+        "@google-cloud/bigquery": "7.3.x",
+        "chalk": "5.3.x",
+        "luxon": "3.4.x",
+        "yargs": "17.7.x"
+    },
+    "bin": {
+        "to-bq": "./bin.js"
+    }
+}
