@@ -14,7 +14,7 @@ async function run(filename, projectName, datasetName, datasetLocation, tableNam
         alert({ message: 'Dataset created' })
     }
     else alert({ message: 'Dataset already exists' })
-    const table = dataset.table('test_table')
+    const table = dataset.table(tableName)
     const [tableExists] = await table.exists()
     if (!tableExists) {
         await dataset.createTable(tableName, {})
