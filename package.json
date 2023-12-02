@@ -12,6 +12,7 @@
     "dependencies": {
         "@google-cloud/bigquery": "7.3.x",
         "chalk": "5.3.x",
+        "fs-extra": "11.2.x",
         "luxon": "3.4.x",
         "yargs": "17.7.x"
     },

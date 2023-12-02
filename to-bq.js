@@ -1,6 +1,6 @@
 import GoogleCloud from '@google-cloud/bigquery'
 
-async function run(filename, projectName, datasetName, datasetLocation, tableName, keyfile, alert) {
+async function run(filename, projectName, datasetName, datasetLocation, tableName, keyfile, schema, alert) {
     const client = new GoogleCloud.BigQuery({
         projectId: projectName,
         keyFilename: keyfile
@@ -30,7 +30,8 @@ async function run(filename, projectName, datasetName, datasetLocation, tableNam
         : format === 'orc' ? 'ORC'
         : 'CSV'
     await table.load(filename, {
-        autodetect: true,
+        ...(schema ? {} : { autodetect: true }),
+        ...(schema ? { schema: { fields: schema } } : {}),
         schemaUpdateOptions: ['ALLOW_FIELD_ADDITION', 'ALLOW_FIELD_RELAXATION'],
         sourceFormat: formatType
     })
