@@ -25,6 +25,6 @@ The dataset and project will be created if they do not already exist. Subsequent
 
 A Google Cloud credentials keyfile needs to be specified with `-k` unless Google Cloud's [Application Default Credentials](https://cloud.google.com/docs/authentication/provide-credentials-adc) exist.
 
-By default the schema for the table will be autodetected from the data being uploaded. Alternatively you can specify the location of a Json schema file with `-s`. If the table already has a schema this will have no effect.
+By default the schema for the table will be autodetected from the data being uploaded. Alternatively you can specify the location of a Json schema file with `-s`.
 
 When a new dataset will be created you can specify the [location in Google Cloud](https://cloud.google.com/bigquery/docs/locations) where the data will reside using `-l`. If the dataset already exists this will have no effect.
