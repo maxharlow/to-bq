@@ -36,18 +36,16 @@ function setup() {
         finalisation = mode
         return new Promise(resolve => events.on('finished', resolve))
     }
-    if (Process.stdin.isTTY) {
-        Process.stdin.setRawMode(true)
-        Process.stdin.setEncoding('utf8')
-        Process.stdin.on('data', async data => {
-            if (data === '\u0003') {
-                console.error(Chalk.chalkStderr.bgRedBright.white('Stopping...'))
-                await finalise('interrupt')
-                Process.exit(0)
-            }
-        })
-        Process.stdin.unref()
-    }
+    if (Process.stdin.isTTY) Process.stdin.setRawMode(true)
+    Process.stdin.setEncoding('utf8')
+    Process.stdin.on('data', async data => {
+        if (data === '\u0003') {
+            console.error(Chalk.chalkStderr.bgRedBright.white('Stopping...'))
+            await finalise('interrupt')
+            Process.exit(0)
+        }
+    })
+    Process.stdin.unref()
     return { alert, finalise }
 }
 
